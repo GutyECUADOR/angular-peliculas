@@ -1,0 +1,14 @@
+<button (click)="handleAddPelicula()">Añadir pelicula</button>
+
+<li *ngFor="let pelicula of peliculas">
+    <p style="background-color: lightgrey; margin:10px; padding: 10px; box-shadow: 10px;">
+      {{pelicula.titulo}} - {{pelicula.precio | currency:'USD'}}
+    </p>
+    <div>
+      @if (pelicula.poster) {
+          <img [src]="pelicula.poster" alt="{{pelicula.titulo}}" style="width: 150px; height: auto;">
+      }@else{
+          <img src="default.jpg" alt="{{pelicula.titulo}}" style="width: 150px; height: auto;">
+      }
+    </div>
+  </li>

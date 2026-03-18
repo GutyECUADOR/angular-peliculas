@@ -7,9 +7,7 @@
 <p>La película publicada: {{pelicula.titulo}} fue publicada con fecha {{pelicula.fecha |date:"dd/MM/yyyy"}} </p>
 
 <ul>
-  <li *ngFor="let pelicula of peliculas">
-    <p style="background-color: lightgrey; margin:10px; padding: 10px; box-shadow: 10px;">
-      {{pelicula.titulo}} - {{pelicula.precio | currency:'USD':true}}
-    </p>
-  </li>
+  <app-lista-peliculas></app-lista-peliculas>
 </ul>
+
+<button (click)="handleClick()">Actualizar</button>
