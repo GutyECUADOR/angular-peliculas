@@ -1,0 +1,10 @@
+
+<span *ngFor="let index of ratingMaxArray">
+    <mat-icon 
+        (mouseenter)="handleMouseOver(index)"
+        (mouseleave)="handleMouseLeave()"
+        (click)="handleClick(index)"
+        [ngClass]="{'iluminated': index < ratingValue}">
+        {{index < ratingValue ? 'star' : 'star_border'}}
+    </mat-icon>
+</span>

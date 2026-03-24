@@ -1,0 +1,12 @@
+mat-toolbar {
+    background-color: #3f51b5;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+span a {
+    color: white;
+    text-decoration: none;
+}

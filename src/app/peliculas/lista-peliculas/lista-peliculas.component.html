@@ -1,4 +1,7 @@
-<button (click)="handleAddPelicula()">Añadir pelicula</button>
+<button mat-flat-button (click)="handleAddPelicula()">
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+  Añadir pelicula
+</button>
 
 <li *ngFor="let pelicula of peliculas">
     <p style="background-color: lightgrey; margin:10px; padding: 10px; box-shadow: 10px;">
@@ -11,4 +14,6 @@
           <img src="default.jpg" alt="{{pelicula.titulo}}" style="width: 150px; height: auto;">
       }
     </div>
+
+    <app-rating [ratingMax]="5" [ratingValue]="pelicula.rating"></app-rating>
   </li>
