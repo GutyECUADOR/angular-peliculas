@@ -6,8 +6,12 @@
 
 <p>La película publicada: {{pelicula.titulo}} fue publicada con fecha {{pelicula.fecha |date:"dd/MM/yyyy"}} </p>
 
-<ul>
-  <app-lista-peliculas></app-lista-peliculas>
-</ul>
+<h2>Películas en cartelera</h2>
+<app-lista-peliculas [peliculas]="peliculasCartelera"></app-lista-peliculas>
+
+
+<h2>Próximos estrenos</h2>
+<app-lista-peliculas [peliculas]="peliculasEstrenos"></app-lista-peliculas>
+
 
 <button (click)="handleClick()">Actualizar</button>
