@@ -1,5 +1,5 @@
 import { NgClass, NgFor } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
@@ -17,6 +17,8 @@ export class RatingComponent implements OnInit {
   @Input({required: true}) ratingMax: number = 0;
 
   @Input({required: true}) ratingValue: number = 0;
+
+  @Output() ratingValueChange = new EventEmitter<number>();
 
   ratingMaxArray: number[] = [];
   lastRatingValue: number = 0;
@@ -38,5 +40,6 @@ export class RatingComponent implements OnInit {
   handleClick(index: number): void {
     this.ratingValue = index + 1;
     this.lastRatingValue = this.ratingValue;
+    this.ratingValueChange.emit(this.ratingValue);
   }
 }

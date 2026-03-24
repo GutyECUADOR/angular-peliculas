@@ -1,13 +1,14 @@
 import { CurrencyPipe, DatePipe, NgFor, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { ListaPeliculasComponent } from "./peliculas/lista-peliculas/lista-peliculas.component";
 import { Pelicula } from "./peliculas/lista-peliculas/lista-peliculas.component";
 import { MenuComponent } from './compartidos/componentes/menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [DatePipe, ListaPeliculasComponent, MenuComponent],
+  imports: [ListaPeliculasComponent, MenuComponent, MatIconModule, MatButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -52,7 +53,7 @@ export class AppComponent {
     titulo: 'Oppenheimer',
     fechaLanzamiento: new Date('2016-05-03'),
     precio: 300.99,
-    poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Oppenheimer_%28film%29.jpg/220px-Oppenheimer_%28film%29.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Oppenheimer_%28film%29.jpg/250px-Oppenheimer_%28film%29.jpg',
     rating: 2 
 
   },
@@ -60,7 +61,7 @@ export class AppComponent {
     titulo: 'The Flash',
     fechaLanzamiento: new Date('2016-05-03'),
     precio: 300.99,
-    poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/250px-The_Flash_%28film%29_poster.jpg',
     rating: 3
   }];
 
@@ -81,5 +82,16 @@ export class AppComponent {
 
   handleClick() {
     console.log('Botón actualizado clicado');
+  }
+
+  handleAddPelicula(peliculas: Pelicula[]) {
+    peliculas.push(
+      {
+      titulo: 'Nueva Película',
+      fechaLanzamiento: new Date(),
+      precio: 200.99,
+      rating: 0
+    }
+    );
   }
 }

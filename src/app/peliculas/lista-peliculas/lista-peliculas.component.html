@@ -1,19 +1,15 @@
-<button mat-flat-button (click)="handleAddPelicula()">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-  Añadir pelicula
-</button>
-
-<li *ngFor="let pelicula of peliculas">
-    <p style="background-color: lightgrey; margin:10px; padding: 10px; box-shadow: 10px;">
+<div class="item" *ngFor="let pelicula of peliculas">
+    <p style="font-weight: 400; font-size: 1.2em; text-align: center;">
       {{pelicula.titulo}} - {{pelicula.precio | currency:'USD'}}
     </p>
-    <div>
+    <div class="poster-container">
       @if (pelicula.poster) {
-          <img [src]="pelicula.poster" alt="{{pelicula.titulo}}" style="width: 150px; height: auto;">
+          <img [src]="pelicula.poster" alt="{{pelicula.titulo}}" style="height: auto;">
       }@else{
-          <img src="default.jpg" alt="{{pelicula.titulo}}" style="width: 150px; height: auto;">
+          <img src="default.jpg" alt="{{pelicula.titulo}}" style="max-width: 380px;">
       }
     </div>
+    <app-rating (ratingValueChange)="handleEventRatingChange(pelicula, $event)" [ratingMax]="5" [ratingValue]="pelicula.rating"></app-rating>
 
-    <app-rating [ratingMax]="5" [ratingValue]="pelicula.rating"></app-rating>
-  </li>
+</div> 
+

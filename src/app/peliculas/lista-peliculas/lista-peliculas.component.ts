@@ -3,6 +3,7 @@ import { Component, Input, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RatingComponent } from '../../compartidos/componentes/rating/rating.component';
+import { MatCardModule } from '@angular/material/card';
 
 export interface Pelicula {
   titulo: string;
@@ -14,7 +15,7 @@ export interface Pelicula {
 
 @Component({
   selector: 'app-lista-peliculas',
-  imports: [CurrencyPipe, NgFor, MatButtonModule, MatIconModule, RatingComponent],
+  imports: [CurrencyPipe, NgFor, MatButtonModule, MatIconModule, RatingComponent, MatCardModule],
   templateUrl: './lista-peliculas.component.html',
   styleUrl: './lista-peliculas.component.css'
 })
@@ -22,17 +23,8 @@ export interface Pelicula {
 export class ListaPeliculasComponent {
 
   @Input({required: true}) peliculas: Pelicula[] = [];
-
  
-  
-  handleAddPelicula() {
-    this.peliculas.push(
-      {
-      titulo: 'Nueva Película',
-      fechaLanzamiento: new Date(),
-      precio: 200.99,
-      rating: 0
-    }
-    );
+  handleEventRatingChange(pelicula: Pelicula, newRating: number): void {
+    alert(`La película ${pelicula.titulo} ha cambiado su rating a ${newRating}`);
   }
 }

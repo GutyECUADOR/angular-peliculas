@@ -7,13 +7,26 @@
 <p>El resultado de duplicar el número 5 es: {{duplicarNumero(5)}}</p>
 
 <p>La película publicada: {{pelicula.titulo}} fue publicada con fecha {{pelicula.fecha |date:"dd/MM/yyyy"}} </p> -->
+<div class="main-container">
+    <h2>Películas en Cartelera</h2>
 
-<h2>Películas en cartelera</h2>
-<app-lista-peliculas [peliculas]="peliculasCartelera"></app-lista-peliculas>
+    <button mat-flat-button (click)="handleAddPelicula(peliculasCartelera)">
+        <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
+        Añadir pelicula
+    </button>
+
+    <app-lista-peliculas class="container" [peliculas]="peliculasCartelera"></app-lista-peliculas>
 
 
-<h2>Próximos estrenos</h2>
-<app-lista-peliculas [peliculas]="peliculasEstrenos"></app-lista-peliculas>
 
+    <h2>Películas en Estreno</h2>
 
-<button (click)="handleClick()">Actualizar</button>
+    <button mat-flat-button (click)="handleAddPelicula(peliculasEstrenos)">
+        <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
+        Añadir pelicula
+    </button>
+
+    <app-lista-peliculas class="container" [peliculas]="peliculasEstrenos"></app-lista-peliculas>
+
+    <button (click)="handleClick()">Actualizar</button>
+</div>
