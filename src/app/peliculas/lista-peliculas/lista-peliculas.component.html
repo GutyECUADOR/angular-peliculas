@@ -1,12 +1,12 @@
 <div class="item" *ngFor="let pelicula of peliculas">
-    <p style="font-weight: 400; font-size: 1.2em; text-align: center;">
+    <p style="font-weight: 400; font-size: 1.2em;">
       {{pelicula.titulo}} - {{pelicula.precio | currency:'USD'}}
     </p>
-    <div class="poster-container">
+    <div>
       @if (pelicula.poster) {
-          <img [src]="pelicula.poster" alt="{{pelicula.titulo}}" style="height: auto;">
+          <img class="poster-image" [src]="pelicula.poster" alt="{{pelicula.titulo}}" style="height: auto;">
       }@else{
-          <img src="default.jpg" alt="{{pelicula.titulo}}" style="max-width: 380px;">
+          <img class="poster-image" src="default.jpg" alt="{{pelicula.titulo}}" style="max-width: 380px;">
       }
     </div>
     <app-rating (ratingValueChange)="handleEventRatingChange(pelicula, $event)" [ratingMax]="5" [ratingValue]="pelicula.rating"></app-rating>
