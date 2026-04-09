@@ -1,0 +1,32 @@
+<div>
+    <h2>Películas en Cartelera</h2>
+
+    <button mat-flat-button routerLink="peliculas/crear">
+        <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
+        Crear nueva pelicula
+    </button>
+    <button mat-flat-button (click)="handleAddPelicula(peliculasCartelera)">
+        <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
+        Añadir pelicula de prueba
+    </button>
+
+    
+    <div style="margin-top: 20px;">
+        <app-lista-peliculas class="container" [peliculas]="peliculasCartelera"></app-lista-peliculas>
+    </div>
+
+
+
+    <h2>Películas en Estreno</h2>
+
+    <button mat-flat-button (click)="handleAddPelicula(peliculasEstrenos)">
+        <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
+        Añadir pelicula
+    </button>
+
+     <div style="margin-top: 20px;">
+        <app-lista-peliculas class="container" [peliculas]="peliculasEstrenos"></app-lista-peliculas>
+     </div>
+
+    <button (click)="handleClick()">Actualizar</button>
+</div>
